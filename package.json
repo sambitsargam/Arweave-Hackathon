@@ -64,6 +64,8 @@
     "react-moralis": "1.4.0",
     "react-router-dom": "5.2.0",
     "react-scripts": "5.0.1",
+    "react-table": "^7.8.0",
+    "react-table-6": "^6.11.0",
     "react-transition-group": "4.4.1",
     "react-typed": "^1.2.0",
     "react-web-share": "^1.1.6",
