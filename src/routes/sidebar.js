@@ -21,11 +21,11 @@ const routes = [
     icon: <CircleStackIcon className="h-6" />, // the component being exported from icons/index.js
     name: "Home", // name that appear in Sidebar
   },
-  // {
-  //   path: "/app/favorite",
-  //   icon: <StarIcon className="h-6" />,
-  //   name: "Favourite",
-  // },
+  {
+    path: "/app/subscribe",
+    icon: <StarIcon className="h-6" />,
+    name: "Subscribe",
+   },
 
   {
     path: "/app/storage",

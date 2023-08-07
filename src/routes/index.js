@@ -15,6 +15,7 @@ const Page404 = lazy(() => import("../pages/404"));
 const Blank = lazy(() => import("../pages/Blank"));
 const Folder = lazy(() => import("../pages/Folder"));
 const Home = lazy(() => import("../pages/home"));
+const Transaction = lazy(() => import("../pages/Transaction"));
 /**
  * ⚠ These are internal routes!
  * They will be rendered inside the app, using the default `containers/Layout`.
@@ -26,8 +27,12 @@ const Home = lazy(() => import("../pages/home"));
  * `routes/sidebar.js`
  */
 const routes = [
+  {
+    path: "/dashboard",
+    component: Transaction,
+  },
    {
-     path: "/dashboard",
+     path: "/subscribe",
     component: Home,
      },
   {
