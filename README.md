@@ -2,9 +2,10 @@
 
 The inspiration behind ArTrackrHub stems from the need to provide users with a comprehensive and efficient solution for tracking their Arweave blockchain transactions. With the growing popularity of blockchain technology and the Arweave network, users require a reliable way to stay informed about their on-chain activities.
 
+
 ## What it does
 
-ArTrackrHub is a powerful web service that offers on-chain transaction notifications and data upload capabilities on the Arweave blockchain. Users can subscribe to their wallet addresses and receive real-time updates whenever transactions occur, making it valuable for traders and developers. The service ensures privacy and security by not storing sensitive wallet information and encrypting data exchanges. Additionally, ArTrackrHub allows users to seamlessly upload data to Arweave for permanent and decentralized storage, catering to various applications from content archiving to blockchain enthusiasts seeking to monitor their activities.
+ArTrackrHub is a powerful web service that offers on-chain transaction notifications and data upload capabilities on the Arweave blockchain. Users can subscribe to their wallet addresses and receive real-time updates whenever transactions occur, making it valuable for traders and developers. The service ensures privacy and security by not storing sensitive wallet information and encrypting data exchanges. Additionally, ArTrackrHub allows users to seamlessly upload data to Arweave for permanent and decentralized storage, catering to various applications from content archiving to blockchain enthusiasts seeking to monitor their activities. Moreover, you can fetch the transactions of ArNS registered names, enhancing your ability to track and manage your digital assets efficiently.
 
 ## How it works
 
