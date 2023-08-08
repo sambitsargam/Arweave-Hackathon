@@ -16,6 +16,7 @@ const Blank = lazy(() => import("../pages/Blank"));
 const Folder = lazy(() => import("../pages/Folder"));
 const Home = lazy(() => import("../pages/home"));
 const Transaction = lazy(() => import("../pages/Transaction"));
+const Arns = lazy(() => import("../pages/Arns"));
 /**
  * ⚠ These are internal routes!
  * They will be rendered inside the app, using the default `containers/Layout`.
@@ -38,6 +39,10 @@ const routes = [
   {
     path: "/setting",
     component: Setting,
+  },
+  {
+    path: "/arns",
+    component: Arns,
   },
   {
     path: "/storage",

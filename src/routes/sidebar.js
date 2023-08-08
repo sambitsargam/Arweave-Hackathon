@@ -26,6 +26,11 @@ const routes = [
     icon: <StarIcon className="h-6" />,
     name: "Subscribe",
    },
+   {
+    path: "/app/arns",
+    icon: <SparklesIcon className="h-6" />,
+    name: "ArNS Transaction",
+   },
 
   {
     path: "/app/storage",

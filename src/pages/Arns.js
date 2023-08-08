@@ -9,33 +9,47 @@ import {
   Select,
   Textarea,
 } from "@windmill/react-ui";
-import arweaveWallet from "arconnect";
 import axios from "axios";
-import ReactTable from "react-table-6";  
-import "react-table-6/react-table.css"
-
-const convertTimestampToUTC = (timestamp) => {
-    const date = new Date(timestamp * 1000); // Convert the timestamp to milliseconds
-    const options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'UTC' };
-    return date.toLocaleString('en-US', options);
-  };
-  
+import ReactTable from "react-table-6";
+import "react-table-6/react-table.css";
 
 export default function Transaction() {
   const [userAddress, setUserAddress] = useState("");
   const [balance, setBalance] = useState("");
   const [transactions, setTransactions] = useState([]);
+  const [arnsName, setArnsName] = useState(""); // State to store the ARNS name input value
 
+  const handleArnsNameChange = (event) => {
+    setArnsName(event.target.value);
+  };
 
+  const fetchOwnerAddress = async () => {
+    try {
+      // fetch the datafrom a url endpoint
+        const response = await axios.get(   
+            `https://dev.arns.app/v1/contract/bLAgYxAdX2Ry-nt6aH2ixgvJXbpsEYm28NgJgyqfs-U/records/${arnsName}`
+            );
+        const ownerAddress = response.data.owner;
+      setUserAddress(ownerAddress);
+      console.log(ownerAddress);
+    } catch (error) {
+      // Handle any errors that occur during the fetch.
+      alert("Address is not Registered with ARNS")
+      setUserAddress(""); // Clear the userAddress state if an error occurs
+    }
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Here you should have the necessary setup for registry and antContract instances.
+    // Make sure they are defined and initialized properly before calling fetchOwnerAddress.
+    fetchOwnerAddress();
+  };
 
   useEffect(() => {
+    if (userAddress !== "") {
     // Define an async function to obtain the user's wallet address
     const Transactions = async () => {
       try {
-        //  await window.arweaveWallet.connect(["ACCESS_ADDRESS"]);
-        // Make sure this code is executed inside an async function or a function that handles the promise.
-        const userAddress = await window.arweaveWallet.getActiveAddress();
-        setUserAddress(userAddress || "");
         const res = await axios.get(
             `https://arweave.net/wallet/${userAddress}/balance`
           );
@@ -114,59 +128,72 @@ export default function Transaction() {
           "Error while obtaining the user's wallet address:",
           error
         );
-        setUserAddress("");
         setBalance("");
         setTransactions([]);
       }
     };
-
     Transactions();
+}
   }, [userAddress]);
+
 
   const columns = [
     {
-      Header: 'ID',
-      accessor: 'id',
+      Header: "ID",
+      accessor: "id",
     },
     {
-      Header: 'Owner Address',
-      accessor: 'owner.address',
+      Header: "Owner Address",
+      accessor: "owner.address",
     },
     {
-        Header: 'Recipient Address',
-        accessor: 'recipient',
+      Header: "Recipient Address",
+      accessor: "recipient",
     },
     {
-      Header: 'Fee (AR)',
-      accessor: 'fee.ar',
+      Header: "Fee (AR)",
+      accessor: "fee.ar",
     },
     {
-      Header: 'Quantity (AR)',
-      accessor: 'quantity.ar',
+      Header: "Quantity (AR)",
+      accessor: "quantity.ar",
       Cell: ({ value }) => parseFloat(value).toFixed(2),
     },
     {
-        Header: 'Timestamp (UTC)',
-        accessor: 'block.timestamp',
-        Cell: ({ value }) => convertTimestampToUTC(value),
-      },
-    ];
+      Header: "Timestamp (UTC)",
+      accessor: "block.timestamp",
+    },
+  ];
   return (
     <>
-      <PageTitle> MY Dashboard </PageTitle>
+      <PageTitle> Find The ARNS Transactions </PageTitle>
       <div className="w-max"></div>
       <div
         className="
          grid md:grid-cols-5 grid-col-9 lg:grid-cols-1 gap-7 "
       >
         <div>
-          <div
-            class="block overflow-hidden border border-gray-100 rounded-lg shadow-sm"
-          >
+          <form onSubmit={handleSubmit}>
+            <Label>
+              <span>ARNS Name</span>
+              <Input
+                className="mt-1"
+                placeholder="ardrive"
+                value={arnsName}
+                onChange={handleArnsNameChange}
+              />
+            </Label>
+            <Button block type="submit" className="mt-4">
+              Search
+            </Button>
+          </form>
+          <br></br>
+          <br></br>
+          <div class="block overflow-hidden border border-gray-100 rounded-lg shadow-sm">
             <div class="p-6">
               <div className="flex flex-row items-center justify-between">
                 <h5 class="text-xl font-bold dark:text-white">
-                  Your Wallet Address
+                   Wallet Address
                 </h5>
               </div>
               <h5 class="text-md font-bold w-5/12 dark:text-white text-white rounded-full bg-blue-400 ">
@@ -176,7 +203,7 @@ export default function Transaction() {
             <div class="p-6">
               <div className="flex flex-row items-center justify-between">
                 <h5 class="text-xl font-bold dark:text-white">
-                  Your Wallet Balance
+                  Wallet Balance
                 </h5>
               </div>
               <h5 class="text-md font-bold w-2/12 dark:text-white text-white rounded-full bg-blue-400 ">
@@ -185,37 +212,34 @@ export default function Transaction() {
             </div>
           </div>
         </div>
-    </div>
-    <PageTitle> MY Transaction </PageTitle>
+      </div>
+      <PageTitle> MY Transaction </PageTitle>
       <div className="w-max"></div>
       <div
         className="
          grid md:grid-cols-5 grid-col-9 lg:grid-cols-1 gap-7 "
       >
         <div>
-          <div
-            class="block overflow-hidden border border-gray-100 rounded-lg shadow-sm"
-          >
-              <ReactTable data={transactions} columns={columns}>
-  {(state, makeTable, instance) => {
-    return (
-      <div
-        style={{
-          background: 'lightblue',
-          borderRadius: '5px',
-          overflow: 'hidden',
-          padding: '5px'
-        }}
-      >
-        {makeTable()}
-      </div>
-    )
-  }}
-</ReactTable>
+          <div class="block overflow-hidden border border-gray-100 rounded-lg shadow-sm">
+            <ReactTable data={transactions} columns={columns}>
+              {(state, makeTable, instance) => {
+                return (
+                  <div
+                    style={{
+                      background: "lightblue",
+                      borderRadius: "5px",
+                      overflow: "hidden",
+                      padding: "5px",
+                    }}
+                  >
+                    {makeTable()}
+                  </div>
+                );
+              }}
+            </ReactTable>
           </div>
         </div>
-    </div>
-            
+      </div>
     </>
   );
 }
