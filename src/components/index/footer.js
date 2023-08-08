@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import Container from "./container";
 import heroImg from "../../public/img/productify-logo.svg";
@@ -28,17 +29,10 @@ export default function Footer() {
             </div>
 
             <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
-              ArTrackrHub a decentralise storage online Platforms with NFT and
-              Chatting capabilities. Users can store their data on IPFS or Web3
-              Storage. Users can access files directly through web browser
-              without using any third party software.
+            Artrckrhub is a powerful web service that offers on-chain transaction notifications and data upload capabilities on the Arweave blockchain. Users can subscribe to their wallet addresses and receive real-time updates whenever transactions occur, making it valuable for traders and developers.
               <br></br>
               <br></br>
-              <p>
-                It has been implemented in order to reduce the dependency on
-                centralized services like Dropbox and Google Drive where users
-                are dependent on a single point of failure. It will give you
-                complete control over your data, right from its inception.
+              <p>he service ensures privacy and security by not storing sensitive wallet information and encrypting data exchanges. Additionally, Artrckrhub allows users to seamlessly upload data to Arweave for permanent and decentralized storage, catering to various applications from content archiving to blockchain enthusiasts seeking to monitor their activities.
               </p>
             </div>
           </div>

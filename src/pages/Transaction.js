@@ -196,13 +196,22 @@ export default function Transaction() {
           <div
             class="block overflow-hidden border border-gray-100 rounded-lg shadow-sm"
           >
-              <ReactTable
-        data={transactions}
-        columns={columns}
-        defaultPageSize={10}
-        className="-striped -highlight"
-
-      />
+              <ReactTable data={transactions} columns={columns}>
+  {(state, makeTable, instance) => {
+    return (
+      <div
+        style={{
+          background: 'lightblue',
+          borderRadius: '5px',
+          overflow: 'hidden',
+          padding: '5px'
+        }}
+      >
+        {makeTable()}
+      </div>
+    )
+  }}
+</ReactTable>
           </div>
         </div>
     </div>

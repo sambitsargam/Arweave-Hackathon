@@ -11,24 +11,24 @@ import benefitOneImg from "../../public/img/benefit-one.png";
 import benefitTwoImg from "../../public/img/benefit-two.png";
 import fdfs from "../../";
 const benefitOne = {
-  title: "Storage",
+  title: "Track",
   // desc: "ou have the freedom to choose whether to store your data on IPFS or Web3 storage.",
 
   image: benefitTwoImg,
   bullets: [
     {
-      title: "File manager",
-      desc: "Directly browse your files from anywhere in the world",
+      title: "Transaction Tracker",
+      desc: "Directly track your transaction on Arweave blockchain",
       icon: <FaceSmileIcon />,
     },
     {
-      title: "Sharing",
-      desc: "Easily share files with friends and family.",
+      title: "Transaction Notification",
+      desc: "Get notified when your transaction is confirmed",
       icon: <ChartBarSquareIcon />,
     },
     {
-      title: "Mobile compatible",
-      desc: "Access your files anytime and anywhere",
+      title: "Account Balance",
+      desc: " Check your account balance and transaction history",
       icon: <CursorArrowRippleIcon />,
     },
   ],
@@ -51,7 +51,7 @@ const benefitTwo = {
     },
     {
       title: "Hybrid Storage ",
-      desc: "You can host both IPFS and Web3storage servers for free. ",
+      desc: "You can host both arweave and othent servers for free. ",
       icon: <SunIcon />,
     },
   ],

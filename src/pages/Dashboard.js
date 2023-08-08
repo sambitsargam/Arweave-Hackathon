@@ -387,9 +387,9 @@ function Dashboard() {
                   : "mt-5 flex flex-row space-x-3 cursor-pointer items-center border-2 p-3 rounded-lg md:max-w-sm max-w-full"
               }  `}
             >
-              <img src={IPFS} className="w-8 rounded-lg" />
+              <img src="https://cryptologos.cc/logos/arweave-ar-logo.svg?v=026" alt="img" className="w-8 rounded-lg" />
               <p class="text-xl font-medium text-gray-900 dark:text-gray-300">
-                IPFS
+                Arweave
               </p>{" "}
             </div>
           </Link>
@@ -404,9 +404,10 @@ function Dashboard() {
                   : "mt-5 flex flex-row space-x-3 cursor-pointer items-center border-2 p-3 rounded-lg md:max-w-sm max-w-full"
               }  `}
             >
-              <img src={WS} className="w-8 rounded-lg" />
+              <img src="https://blog.othent.io/blog/introducing-othent/favicon.svg" alt="img" className="w-8 rounded-lg" />
               <p class="text-xl font-medium text-gray-900 dark:text-gray-300">
-                Web3.storage
+                Othent
+                
               </p>{" "}
             </div>
           </Link>

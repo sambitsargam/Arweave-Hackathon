@@ -7,7 +7,7 @@ export default function Hero() {
   const el = useRef(null);
   useEffect(() => {
     const typed = new Typed(el.current, {
-      strings: ["Storage 💾", "NFT 🎨", "Chat 💬"], // Strings to display
+      strings: ["Storage 💾", "NFT 🎨", "Transaction Notification 💬"], // Strings to display
       // Speed settings, try diffrent values untill you get good results
       startDelay: 300,
       typeSpeed: 100,
@@ -34,9 +34,7 @@ export default function Hero() {
               Get <span ref={el}></span> All in one app
             </h1>
             <p className="py-5 text-xl leading-normal text-gray-600 lg:text-xl xl:text-2xl dark:text-gray-300">
-              ArTrackrHub a decentralise storage online Platforms with NFT and
-              Chatting capabilities.Users can choose to store their data on IPFS
-              or Web3 Storage.
+            Artrckrhub is a powerful web service that enables users to subscribe with their wallet addresses and receive real-time notifications for on-chain transactions on the Arweave blockchain. In addition to providing transaction monitoring, Artrckrhub also facilitates the seamless upload of data to the Arweave network.
             </p>
  
             <div className="flex flex-col items-start space-x-3 space-y-3 sm:space-y-0 sm:items-center sm:flex-row">

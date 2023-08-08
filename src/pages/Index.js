@@ -23,22 +23,26 @@ export default function Home() {
         ></SectionTitle>
         <Benefits data={benefitOne} />
         <Benefits imgPos="right" data={benefitTwo} />
+        
+        <SectionTitle pretitle="Working" title="How ArTrackrHub Work">
+        Artrckrhub Stored the Wallet Address of user who subscribed to the service and send them notification when a transaction is made to their wallet address
+          <br></br>
+          <p>
+        We Fetch the Transactions using the Arweave GraphQL API and send the notification  using nodeailer to the user using the email address they provided
+          </p>
+        </SectionTitle>
+        <br></br>
         <SectionTitle pretitle="about" title="Learn more about ArTrackrHub">
-          ArTrackrHub a decentralise storage online Platforms with NFT and
-          Chatting capabilities. Users can store their data on IPFS or Web3
-          Storage. Users can access files directly through web browser without
-          using any third party software.
+        Artrckrhub offers on-chain transaction notifications for Arweave blockchain users. It ensures privacy, real-time updates, and data upload capabilities
           <br></br>
           <br></br>
           <p>
-            It has been implemented in order to reduce the dependency on
-            centralized services like Dropbox and Google Drive where users are
-            dependent on a single point of failure. It will give you complete
-            control over your data, right from its inception.
+          With secure data storage and seamless subscription, Artrckrhub is a valuable tool for traders and developers to stay informed about transactions.
           </p>
         </SectionTitle>
 
         <Cta />
+
         <Footer />
         <PopupWidget />
       </div>

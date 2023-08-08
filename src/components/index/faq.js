@@ -35,11 +35,11 @@ export default function Faq() {
 
 const faqdata = [
   {
-    question: "Is this template completely free to use?",
+    question: "How it Working?",
     answer: "Yes, this template is completely free to use.",
   },
   {
-    question: "Can I use it in a commercial project?",
+    question: "How to Fetch Transaction?",
     answer: "Yes, this you can.",
   },
   {
@@ -50,6 +50,6 @@ const faqdata = [
   {
     question: "Do you offer technical support? ",
     answer:
-      "No, we don't offer technical support for free downloads. Please purchase a support plan to get 6 months of support.",
+      "No, we don't offer technical support at this time.",
   },
 ];
