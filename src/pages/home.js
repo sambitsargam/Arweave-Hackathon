@@ -58,7 +58,7 @@ function Home() {
         // Handle the error here, if required.
       });
       try {
-        const response = await fetch('https://special-space-eureka-p9qqr7q459p2rr99-3030.app.github.dev/subscribe', {
+        const response = await fetch('https://trackrhub.onrender.com/subscribe', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

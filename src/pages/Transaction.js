@@ -14,6 +14,12 @@ import axios from "axios";
 import ReactTable from "react-table-6";  
 import "react-table-6/react-table.css"
 
+const convertTimestampToUTC = (timestamp) => {
+    const date = new Date(timestamp * 1000); // Convert the timestamp to milliseconds
+    const options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'UTC' };
+    return date.toLocaleString('en-US', options);
+  };
+  
 
 export default function Transaction() {
   const [userAddress, setUserAddress] = useState("");
@@ -24,7 +30,7 @@ export default function Transaction() {
 
   useEffect(() => {
     // Define an async function to obtain the user's wallet address
-    const getUserAddress = async () => {
+    const Transactions = async () => {
       try {
         //  await window.arweaveWallet.connect(["ACCESS_ADDRESS"]);
         // Make sure this code is executed inside an async function or a function that handles the promise.
@@ -36,18 +42,6 @@ export default function Transaction() {
 
         const balance = res.data / 1000000000000;
         setBalance(balance);
-      } catch (error) {
-        console.error(
-          "Error while obtaining the user's wallet address:",
-          error
-        );
-        setUserAddress("");
-      }
-    };
-
-    const fetchTransactions = async () => {
-        try {
-          // Fetch transactions for recipients
           const recipientsQuery = `{
             transactions(recipients: ["${userAddress}"]) {
               edges {
@@ -115,12 +109,18 @@ export default function Transaction() {
   
           const mergedTransactions = [...recipientsTransactions, ...ownersTransactions];
           setTransactions(mergedTransactions);
-        } catch (error) {
-          console.error("Error fetching data:", error);
-        }
-      };
-    getUserAddress();
-    fetchTransactions();
+      } catch (error) {
+        console.error(
+          "Error while obtaining the user's wallet address:",
+          error
+        );
+        setUserAddress("");
+        setBalance("");
+        setTransactions([]);
+      }
+    };
+
+    Transactions();
   }, [userAddress]);
 
   const columns = [
@@ -146,8 +146,9 @@ export default function Transaction() {
       Cell: ({ value }) => parseFloat(value).toFixed(2),
     },
     {
-        Header: 'Timestamp',
+        Header: 'Timestamp (UTC)',
         accessor: 'block.timestamp',
+        Cell: ({ value }) => convertTimestampToUTC(value),
       },
     ];
   return (
