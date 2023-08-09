@@ -111,7 +111,7 @@ const fetchTransactions = async (walletAddress,emails) => {
         const transactionTimestamp = transaction.block.timestamp;
         const currentTimestamp = Date.now() / 1000;
         const difference = currentTimestamp - transactionTimestamp;
-        return difference <= 120;
+        return difference <= 30;
       }
     );
 
@@ -120,7 +120,7 @@ const fetchTransactions = async (walletAddress,emails) => {
       const transactionTimestamp = transaction.block.timestamp;
       const currentTimestamp = Date.now() / 1000;
       const difference = currentTimestamp - transactionTimestamp;
-      return difference <= 120;
+      return difference <= 30;
     });
 
 
@@ -215,8 +215,8 @@ if (ownerfilteredTransactions.length > 0 ) {
     console.error('Error fetching transactions:', error.message);
   }
 };
-// Schedule the job to run every two minutes
-const cronJob = new CronJob('*/2 * * * *', fetchDataFromFirebase);
+// Schedule the job to run every 30 sec
+const cronJob = new CronJob('*/30 * * * * *', fetchDataFromFirebase);
 
 // Start the cron job
 cronJob.start();
