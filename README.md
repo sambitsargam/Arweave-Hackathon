@@ -1,3 +1,6 @@
+# I PAUSED THE BACKEND
+
+
 ## Inspiration
 
 The inspiration behind ArTrackrHub stems from the need to provide users with a comprehensive and efficient solution for tracking their Arweave blockchain transactions. With the growing popularity of blockchain technology and the Arweave network, users require a reliable way to stay informed about their on-chain activities.
